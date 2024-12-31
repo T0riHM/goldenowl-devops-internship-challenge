@@ -32,8 +32,11 @@ jobs:
     - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@v1
       with:
-        project_id: chrome-orb-446317-k6
+        project_id: chrome-orb-446317-k6it
         service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+
+    - name: Authenticate Docker with GCR 
+      run: gcloud auth configure-docker
 
     - name: Build Docker image
       run: docker build -t gcr.io/chrome-orb-446317-k6/demogo:latest .
