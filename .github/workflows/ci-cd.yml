@@ -26,10 +26,12 @@ jobs:
       run: npm test
 
     - name: Print Docker Username 
-      run: echo ${{ secrets.DOCKER_USERNAME }}
-      
-    - name: Print Docker password
-      run: echo ${{ secrets.DOCKER_PASSWORD }}
+      run: echo $DOCKER_USERNAME 
+      env: 
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+    
+    - name: Print Docker Username 
+      run: echo ${{ secrets.DOCKER_USERNAME }}    
 
     - name: Login to DockerHub
       uses: docker/login-action@v2
