@@ -3,11 +3,11 @@ name: Deploy to Google Container Registry (GCR)
 on:
   push:
     branches:
-
+        - master
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: 
+    environment: GCR
 
     steps:
     - name: Checkout code
